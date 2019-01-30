@@ -10,9 +10,11 @@ function log() {
 
 function mac_install() {
   log "installing homebrew"
-  bash -c ./homebrew.sh
+  bash -c mac/homebrew.sh
 
-  # zsh
+  log "installing zsh"
+  bash -c mac/zsh.sh
+
   # .zshrc
 }
 
