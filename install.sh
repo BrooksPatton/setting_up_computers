@@ -15,7 +15,8 @@ function mac_install() {
   log "installing zsh"
   bash -c mac/zsh.sh
 
-  # .zshrc
+  log "setting up .zshrc"
+  bash -c any/zshrc/zshrc.sh
 }
 
 case "$(uname -s)" in
