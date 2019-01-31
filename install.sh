@@ -15,6 +15,14 @@ function mac_install() {
   log "installing zsh"
   bash -c mac/zsh.sh
 
+  log "installing vim"
+  bash -c mac/vim.sh
+
+  log "installing notion"
+  bash -c mac/notion.sh
+}
+
+function any_install() {
   log "setting up .zshrc"
   bash -c any/zshrc/zshrc.sh
 }
@@ -29,4 +37,7 @@ then
   mac_install
 else
   echo unknown operating system, please check uname
+  exit 1
 fi
+
+any_install
