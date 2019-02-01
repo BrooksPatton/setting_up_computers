@@ -20,6 +20,12 @@ function mac_install() {
 
   log "installing notion"
   bash -c mac/notion.sh
+
+  log "installing yubikey"
+  bash -c mac/yubikey.sh
+
+  log "setting up ssh keys"
+  bach -c mac/ssh-key.sh
 }
 
 function any_install() {
