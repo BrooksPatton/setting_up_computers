@@ -25,7 +25,13 @@ function mac_install() {
   bash -c mac/yubikey.sh
 
   log "setting up ssh keys"
-  bach -c mac/ssh-key.sh
+  bash -c mac/ssh-key.sh
+
+  log "installing dropbox"
+  bash -c mac/dropbox.sh
+
+  log "installing libreoffice"
+  bash -c mac/libreoffice.sh
 }
 
 function any_install() {
