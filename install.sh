@@ -32,6 +32,8 @@ function mac_install() {
 
   log "installing libreoffice"
   bash -c mac/libreoffice.sh
+
+  bash -c mac/1password.sh
 }
 
 function any_install() {
