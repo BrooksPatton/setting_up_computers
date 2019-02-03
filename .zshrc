@@ -43,3 +43,9 @@ fi
 
 alias ll="ls -l"
 alias la="ls -la"
+
+# functions
+
+function take() {
+  mkdir -p $@ && cd ${@:$#}
+}

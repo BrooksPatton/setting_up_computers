@@ -34,6 +34,7 @@ function mac_install() {
   bash -c mac/libreoffice.sh
 
   bash -c mac/1password.sh
+  bash -c mac/steam.sh
 }
 
 function any_install() {
