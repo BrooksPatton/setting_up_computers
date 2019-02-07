@@ -2,57 +2,35 @@
 
 # This install script will determine what type of computer we are running on and then run the appropriate install scripts to get everything (or at least as much as possible set up
 
-function log() {
-  echo "*************************"
-  echo "$1"
-  echo "*************************"
+function check_for_error() {
+	if [ "$?" == 0 ]; then
+		echo
+		echo "** error installing $1, exiting"
+		exit 100
+	fi
 }
 
-function mac_install() {
-  log "installing homebrew"
-  bash -c mac/homebrew.sh
+function install_all_in_folder() {
+	folder="$1"
 
-  log "installing zsh"
-  bash -c mac/zsh.sh
+	for script in "$(ls $folder)"; do
+		bash -c "$folder/$script.sh"
+		check_for_error "$script"
+	done
 
-  log "installing vim"
-  bash -c mac/vim.sh
-
-  log "installing notion"
-  bash -c mac/notion.sh
-
-  log "installing yubikey"
-  bash -c mac/yubikey.sh
-
-  log "setting up ssh keys"
-  bash -c mac/ssh-key.sh
-
-  log "installing dropbox"
-  bash -c mac/dropbox.sh
-
-  log "installing libreoffice"
-  bash -c mac/libreoffice.sh
-
-  bash -c mac/1password.sh
-  bash -c mac/steam.sh
-}
-
-function any_install() {
-  log "setting up .zshrc"
-  bash -c any/zshrc/zshrc.sh
 }
 
 case "$(uname -s)" in
-  Darwin*) OPERATING_SYSTEM="mac";;
-  *)       OPERATING_SYSTEM="unknown"
+	Darwin*)	OPERATING_SYSTEM="mac";;
+	*)	 	OPERATING_SYSTEM="unknown"
 esac
 
 if [ "$OPERATING_SYSTEM" == "mac" ]
 then
-  mac_install
+	install_all_in_folder "mac"
 else
-  echo unknown operating system, please check uname
-  exit 1
+	echo unknown operating system, please check uname
+	exit 1
 fi
 
-any_install
+install_all_in_folder "any"

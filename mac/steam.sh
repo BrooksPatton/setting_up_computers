@@ -1,7 +1,7 @@
 #!/bin/bash
 
-./log.sh "installing steam"
+echo
+echo "** installing steam"
+echo 
 
 brew cask install steam
-
-./log.sh "steam installed"

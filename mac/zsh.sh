@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Install zsh using homebrew on a mac
+echo
+echo "** installing zsh"
+echo
 
 brew install zsh
 
