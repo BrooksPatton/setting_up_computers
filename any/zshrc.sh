@@ -5,4 +5,4 @@
 echo
 echo "** installing zshrc"
 echo
-cp ./.zshrc ~/
+ln ./.zshrc ~/
