@@ -14,7 +14,6 @@ zplug "popstas/zsh-command-time"
 zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
-zplug "MikeDacre/tmux-zsh-vim-titles"
 zplug "supercrabtree/k"
 zplug "hlissner/zsh-autopair"
 zplug "ael-code/zsh-colored-man-pages"
@@ -49,3 +48,6 @@ alias la="ls -la"
 function take() {
   mkdir -p $@ && cd ${@:$#}
 }
+
+# Disable auto setting of titles
+DISABLE_AUTO_TITLE="true"
