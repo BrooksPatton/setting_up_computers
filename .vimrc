@@ -17,6 +17,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
 
 " IDE
 Plug 'scrooloose/nerdtree'
